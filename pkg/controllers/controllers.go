@@ -9,7 +9,10 @@ import (
 // Function to handle Index route.
 func Index(w http.ResponseWriter, r *http.Request) {
 	inp := r.URL.Query().Get("inp")
-	log.Println(inp)
+	if inp == "" {
+		inp = "Hello world."
+	}
+	log.Printf("INFO: %v", inp)
 
 	resp := map[string]string{
 		"message": inp,

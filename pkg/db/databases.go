@@ -23,9 +23,9 @@ func GetDBAttributes() (string, string, string, string, string) {
 
 func Init() *gorm.DB {
 	db_name, username, password, host, port := GetDBAttributes()
-	DbUrl := fmt.Sprintf("postgres://%s:%ss@%s:%s/%s", username, password, host, port, db_name)
+	dbUrl := fmt.Sprintf("postgres://%s:%ss@%s:%s/%s", username, password, host, port, db_name)
 
-	db, err := gorm.Open(postgres.Open(DbUrl), &gorm.Config{})
+	db, err := gorm.Open(postgres.Open(dbUrl), &gorm.Config{})
 
 	if err != nil {
 		log.Fatalf("Error:\t%v", err)
